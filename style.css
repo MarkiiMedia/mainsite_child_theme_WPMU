@@ -1,0 +1,386 @@
+/*
+Theme Name: Twenty Sixteen Child v.1.1
+Theme URI: 
+Author: Mark Mundus Andersen
+Author URI: https://markiimedia.dk
+Description: Twenty Sixteen child theme v.1.1
+Template: twentysixteen
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.1.0
+Text Domain: twentysixteen-child v.1.1
+*/
+
+/* APPENDIX */
+/*
+ * 1. NEED TO BE - GENERAL (EX .site rules, background, general borders etc.)
+ * 2. MENU RULES
+ * 3. BREADCRUMB RULES
+ * 4. SIDEBAR RULES
+ * 5. FOOTER RULES
+ * 6. BLOG RULES
+ * 7. EXTRA RULES (MAY OR MAY NOT BE USED, DEPENDING ON USAGE/WISHES)
+ * /
+
+/* COLORS: /*
+/*
+ * BORDER: 					  			   #c1c1c1
+ * BLUE:   					  			   #4967aa
+ * ORANGE (Hover, clickable): 			   #ff665e
+ * /
+
+/*-----------------------------------------1. NEED TO BE - GENERAL STARTS HERE-----------------------------------------*/
+/*Get rid of black border */
+.site {
+    margin: 0 auto !important;
+}
+
+/*General rule, needed for theme to operate the way we want it to*/
+body:not(.custom-background-image):before,
+    body:not(.custom-background-image):after {
+    height: 0px !important;
+}
+
+/* Removing all padding inside header */
+header#masthead {
+    padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+
+
+/*Border on content (below header)*/
+div#content {
+    border: 1px solid #c1c1c1;
+}
+
+/*Border under breadcrumbs*/
+main#main {
+    border-top: 1px solid #c1c1c1;
+}
+
+/*Padding top on h1 entry title*/
+h1.entry-title {
+	padding-top: 40px;
+	font-family: verdana !important;
+}
+
+/*Transparent background so image is visible (on outer site)*/
+.site {
+	background-color: transparent;
+}
+
+/*White background on inner site*/
+.site-inner {
+    background-color: white;
+}
+
+/*-----------------------------------------1. NEED TO BE - GENERAL ENDS HERE-----------------------------------------*/
+
+
+
+/*-----------------------------------------2. MENU RULES STARTS HERE-----------------------------------------*/
+/*Menu rules making text uppercase, setting fontsize bigger, small padding (to remove it from edge), and removing margin+padding to set it centered*/
+.site-header-menu {
+	text-transform: uppercase;
+	font-size: 1.4em;
+	padding: 5px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+/*Header rules, including margin and padding and border top, left and right (bottom border here would be top border from content, so we dont need it)*/
+.site-header-main {
+	margin-top: 1%;
+	padding-left:1%;
+	padding-right: 1%;
+	border-top: 1px solid #c1c1c1;
+	border-left: 1px solid #c1c1c1;
+	border-right: 1px solid #c1c1c1;
+}
+
+/*CBS LOGO rules, padding to create distance from border + removing padding from top and bottom to center logo*/
+.custom-logo-link {
+	padding: 20px;
+	padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+/*Menu text color*/
+.main-navigation ul li > a {
+    color: #4967aa;
+}
+
+/*Menu text hover color*/
+.main-navigation ul li:hover > a {
+    color: #ff665e;
+}
+
+/*Active state menu item*/
+.main-navigation .current-menu-item > a, .main-navigation .current-menu-ancestor > a {
+    color: #ff665e;
+	font-weight: inherit;
+}
+
+/* Hide arrow */
+.main-navigation ul li.menu-item-has-children > a::after, .main-navigation ul li.page_item_has_children > a::after {
+    content: none;
+    }
+
+/* Remove distance on items with children (so it has same lenght as normal) */
+.main-navigation .menu-item-has-children > a {
+    margin: 0;
+    padding-right: 19px;
+}
+
+/* Submenu rules starts here */
+/*Overflow visible, making sure submenu is not cut of*/
+.site-inner {
+    overflow: visible !important;
+}
+
+/* Submenu fontsize and width */
+ul.sub-menu {
+    font-size: 0.8em;
+	width: 700px;
+}
+
+/*Mobile view - width (submenu) 100% */
+@media screen and (min-width: 56.875em) {
+.main-navigation ul ul a {
+    white-space: normal;
+    width: 100%;
+}
+}
+
+/*1200px for Ipad Pro support*/
+@media screen and (max-width: 1200px) {
+ul.sub-menu {
+    font-size: 0.7em;
+	width: 100%;
+	}
+}
+/* Submenu rules ends here */
+
+/*Bottom border when sticky*/
+#mysticky-nav.wrapfixed > .site-header {
+    border-bottom: 1px solid #c1c1c1 !important;
+}
+
+/*Mobile menu-button*/
+.menu-toggle.toggled-on, .menu-toggle.toggled-on:hover, .menu-toggle.toggled-on:focus {
+	border:none;
+    color: #fff;
+	background-color: #ff665e;
+}
+/*-----------------------------------------2. MENU RULES ENDS HERE-----------------------------------------*/
+
+
+
+/*-----------------------------------------3. BREADCRUMB RULES STARTS HERE-----------------------------------------*/
+/*Breadcrumbs - Center with 0.5% distance, and small fontsize (out of the box was to big) */ 
+.breadcrumbs {
+	padding-bottom: 0.5%;
+	margin-top: 0.5%;
+	font-size: 0.8em;
+}
+
+/* 
+ * Effect so backwards crumbs gets "hidden", making room for the last item on the list - read more here: 
+ * https://mtekk.us/archives/guides/trimming-breadcrumb-title-lengths-with-css/
+ */
+.breadcrumbs span[property="name"] {
+    display: inline-block;
+    padding: 0;
+    margin-top: -3px;
+    vertical-align: middle;
+    max-width: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.breadcrumbs span[property="name"]:hover {
+    max-width: none;
+}
+
+/*For mobile screen - for padding*/
+@media screen and (max-width: 909px) {
+    .breadcrumbs {
+        padding-left: 7.6923%;
+    }
+}
+
+/*-----------------------------------------3. BREADCRUMB RULES ENDS HERE-----------------------------------------*/
+
+
+
+/*-----------------------------------------4. SIDEBAR RULES STARTS HERE-----------------------------------------*/
+/*Remove top border on widgets (out of the box from theme*/
+.widget {
+	border-top: none;
+}
+
+/*Sidebar 1% padding left and right*/
+aside#secondary {
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+/*Widget title (sidebar) margin bottom*/
+.widget .widget-title {
+	margin-bottom: 0.5em;
+}
+
+/*Polylang widget*/
+.lang-item {
+	display: inline;
+	padding-left: 2px;
+}
+
+/*Sidebar polylang styles*/
+section#polylang-2 {
+    text-align: right;
+    margin-bottom: 10px;
+    margin-top: 11px;
+    padding-top: 0;
+}
+
+/*Remove dots on list (genveje/shortcuts) and removes margin left*/
+aside#secondary ul {
+	list-style: none;
+	margin-left: 0;
+}
+
+/*Links (danish)*/
+section#text-4 {
+    padding-top: 0;
+	margin-bottom: 0;
+}
+
+/*Links (english)*/
+section#text-5 {
+    padding-top: 0;
+	margin-bottom: 0;
+}
+
+
+/*-----------------------------------------4. SIDEBAR RULES ENDS HERE-----------------------------------------*/
+
+
+
+/*-----------------------------------------5. FOOTER RULES STARTS HERE-----------------------------------------*/
+/*Footer section border top - creating the line*/
+section#text-3 {
+    border-top: 1px solid #c1c1c1;
+}
+
+/*Hide the "original" footer*/
+footer#colophon {
+    display: none;
+}
+/*Remove margin in bottom of fake footer (on all widget-area class, but it's okay)*/
+.widget-area {
+    margin-bottom: 0px !important;
+}
+/*-----------------------------------------5. FOOTER RULES ENDS HERE-----------------------------------------*/
+
+
+
+
+
+
+
+
+/*-----------------------------------------6. BLOG RULES STARTS HERE-----------------------------------------*/
+h2.entry-title {
+    padding-top: 40px;
+    font-family: verdana !important;
+}
+
+.post-navigation {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.post-navigation div + div {
+    border-top: 1px solid #c1c1c1;
+}
+/*-----------------------------------------6. BLOG RULES ENDS HERE-----------------------------------------*/
+
+
+
+/*-----------------------------------------7. EXTRA RULES STARTS HERE-----------------------------------------*/
+
+
+/*Accordion rules starts here*/
+/*Show arrow when arrordion is open*/
+.advgb-accordion-header[aria-expanded="true"] .advgb-accordion-header-icon {
+    display: block !important;
+}
+
+/*Accordion h4 text smaller*/
+h4.advgb-accordion-header-title {
+    font-size: 1em !important;
+}
+
+/*Orange on hover (not built in Gutenberg builder - Advanced tabs)*/
+li.advgb-tab:hover {
+	background-color: #ff665e !important;
+}
+/*Accordion rules ends here*/
+
+/*Frontpage - How many sites*/
+.uagb-section__inner-wrap {
+    color: white;
+    text-align: center;
+}
+
+/*Contact button hover*/
+.advgb-form-submit:hover {
+    background-color: #ff665e !important;
+}
+
+/*Frontpage post carousel (DANISH) - BEMÆRK: DENNE KAN SAGTENS ÆNDRE SIG NÅR JEG ÆNDRER TING PÅ FORSIDE, OG SÅ ER DET FØRSTE STYKKE DER SKAL ÆNDRES TIL NYESTE TAL*/
+.uagb-block-08f7cb4e-7460-4c14-983d-879e02d4a594 .uagb-post__text .uagb-post__title {
+    margin-bottom: 100px !important;
+    margin-top: 100px;
+}
+
+/*Frontpage post carousel (ENGLISH) - BEMÆRK: DENNE KAN SAGTENS ÆNDRE SIG NÅR JEG ÆNDRER TING PÅ FORSIDE, OG SÅ ER DET FØRSTE STYKKE DER SKAL ÆNDRES TIL NYESTE TAL*/
+.uagb-block-4e92cd32-169e-4125-abe9-0540f6ce4abd .uagb-post__text .uagb-post__title {
+    margin-bottom: 100px !important;
+    margin-top: 100px;
+}
+
+h3.uagb-post__title a {
+    background-color:#3f5992; /*Fallback*/
+    /*background-color: rgba(63,89,146,0.7);*/
+    color: white !important;
+    /*padding: 10px 20px 10px 20px;*/
+    padding: 1% 2% 1% 2%; /*Procenter brugt istedet for px, da det fejler på mobilvisning ved brug af px. Nu er det procentmæssigt og virker mere korrekt*/
+}
+
+.entry-content a, .entry-summary a, .taxonomy-description a, .logged-in-as a, .comment-content a, .pingback .comment-body > a, .textwidget a, .entry-footer a:hover, .site-info a:hover {
+    box-shadow: none;
+}
+
+
+/*-----------------------------------------7. EXTRA RULES ENDS HERE-----------------------------------------*/
+/*FONTS - rules set here, because Wordpress for some reason not setting it in control panel*/
+
+body,
+button,
+input,
+select,
+textarea {
+	font-family: verdana !important;
+}
+
+h2.widget-title {
+    font-family: verdana !important;
+}
+
